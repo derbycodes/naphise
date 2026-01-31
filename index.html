@@ -1168,8 +1168,7 @@
                     <a href="https://www.instagram.com/naphsie_mua/" class="social-icon" title="Instagram"
                         target="_blank">
                         <!-- Instagram Icon (Outline) -->
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" <svg
-                            class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none"></path>
@@ -1301,6 +1300,7 @@
         const dotsContainer = document.getElementById('sliderDots');
         const items = document.querySelectorAll('.works-item');
         let currentIndex = 0;
+        let slideInterval;
 
         function updateSlider() {
             const totalSlides = items.length;
@@ -1315,6 +1315,7 @@
                     dot.addEventListener('click', () => {
                         currentIndex = i;
                         goToSlide(i);
+                        resetSlideshow(); // Reset timer when manually clicking
                     });
                     dotsContainer.appendChild(dot);
                 }
@@ -1338,13 +1339,22 @@
             goToSlide(currentIndex);
         }
 
-        // Auto transition
-        let slideInterval = setInterval(nextSlide, 3000);
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function resetSlideshow() {
+            clearInterval(slideInterval);
+            startSlideshow();
+        }
+
+        // Initialize slideshow
+        startSlideshow();
 
         // Pause on hover
         const worksSection = document.querySelector('.works');
         worksSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        worksSection.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 3000));
+        worksSection.addEventListener('mouseleave', startSlideshow);
 
         window.addEventListener('resize', updateSlider);
         updateSlider();
