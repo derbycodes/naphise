@@ -571,7 +571,7 @@
 
         .works-slider-container {
             position: relative;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             overflow: hidden;
         }
@@ -1327,12 +1327,12 @@
         }
 
         // Auto transition
-        let slideInterval = setInterval(nextSlide, 5000);
+        let slideInterval = setInterval(nextSlide, 3000);
 
         // Pause on hover
         const worksSection = document.querySelector('.works');
         worksSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        worksSection.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+        worksSection.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 3000));
 
         window.addEventListener('resize', updateSlider);
         updateSlider();
