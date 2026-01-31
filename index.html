@@ -579,27 +579,28 @@
         .works-slider {
             display: flex;
             transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-            gap: 2rem;
+            /* Removed gap for single view */
         }
 
         .works-item {
-            flex: 0 0 calc(33.333% - 1.35rem);
+            flex: 0 0 100%;
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            aspect-ratio: 4 / 5;
+            aspect-ratio: 16 / 9;
+            /* More panoramic for single view */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 992px) {
             .works-item {
-                flex: 0 0 calc(50% - 1rem);
+                aspect-ratio: 4 / 3;
             }
         }
 
         @media (max-width: 600px) {
             .works-item {
-                flex: 0 0 100%;
+                aspect-ratio: 1 / 1;
             }
         }
 
@@ -1288,16 +1289,11 @@
         const dotsContainer = document.getElementById('sliderDots');
         const items = document.querySelectorAll('.works-item');
         let currentIndex = 0;
-        let itemsPerView = 3;
 
         function updateSlider() {
-            if (window.innerWidth <= 600) itemsPerView = 1;
-            else if (window.innerWidth <= 992) itemsPerView = 2;
-            else itemsPerView = 3;
+            const totalSlides = items.length;
 
-            const totalSlides = Math.ceil(items.length / itemsPerView);
-
-            // Re-create dots if per-view changes
+            // Create dots for each image
             if (dotsContainer.children.length !== totalSlides) {
                 dotsContainer.innerHTML = '';
                 for (let i = 0; i < totalSlides; i++) {
@@ -1320,15 +1316,13 @@
             dots.forEach(dot => dot.classList.remove('active'));
             if (dots[index]) dots[index].classList.add('active');
 
-            const gap = parseFloat(getComputedStyle(slider).gap);
-            const itemWidth = items[0].offsetWidth;
-            const moveAmount = (itemWidth + gap) * index * itemsPerView;
-            slider.style.transform = `translateX(-${moveAmount}px)`;
+            // Move by 100% per item since each is full width
+            const moveAmount = 100 * index;
+            slider.style.transform = `translateX(-${moveAmount}%)`;
         }
 
         function nextSlide() {
-            const totalSlides = Math.ceil(items.length / itemsPerView);
-            currentIndex = (currentIndex + 1) % totalSlides;
+            currentIndex = (currentIndex + 1) % items.length;
             goToSlide(currentIndex);
         }
 
