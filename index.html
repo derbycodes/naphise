@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naphsie makeup & hair - Luxury Beauty Destination</title>
+    <meta name="description"
+        content="Experience the art of beauty with our curated collection of luxury cosmetics and professional makeup services.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=block"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #a8566b;
+            --secondary-color: #d4a5a5;
+            --text-dark: #2c2c2c;
+            --text-light: #666;
+            --bg-light: #faf8f6;
+            --white: #ffffff;
+            --accent-rose: #c9a0a0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.9rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .logo {
+            font-family: 'Pinyon Script';
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .logo-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: 2px;
+            margin-left: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-icon {
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        /* Search Bar */
+        .search-container {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 5%;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            animation: fadeIn 0.3s ease;
+            z-index: 1000;
+        }
+
+        .search-container.active {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            width: 200px;
+        }
+
+        .search-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 600px;
+            background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)),
+                url('hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 60%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f5d5d8;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%23e8c5c9;stop-opacity:0.5"/></linearGradient></defs><rect fill="url(%23grad)" width="800" height="600"/></svg>') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            text-shadow: 0 1px 15px rgba(255, 255, 255, 1);
+        }
+
+        .hero-subtitle {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                letter-spacing: 2px;
+                font-size: 0.75rem;
+            }
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .hero-description {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            font-weight: 500;
+            text-shadow: 0 1px 8px rgba(255, 255, 255, 1);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #8f4a5c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(168, 86, 107, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-dark);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 5%;
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: #f9eef0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--text-dark);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .product-card {
+            background: white;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem 0;
+        }
+
+        .product-category {
+            color: var(--text-light);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .view-all {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 1rem 2.5rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: var(--text-dark);
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .services-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+                url('services-bg.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .services-content {
+            padding: 2rem;
+        }
+
+        .services-content .section-subtitle {
+            color: var(--accent-rose);
+        }
+
+        .services-content .section-title {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-rose {
+            background: var(--accent-rose);
+            color: var(--text-dark);
+        }
+
+        .btn-rose:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 165, 165, 0.3);
+        }
+
+
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: #bbb;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        .brand-name:hover {
+            color: var(--primary-color);
+        }
+
+        /* SVG Icon styling */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+            vertical-align: middle;
+        }
+
+        .feature-icon .icon {
+            width: 30px;
+            height: 30px;
+            stroke-width: 1.2;
+        }
+
+        /* Helper for solid icons */
+        .icon-filled {
+            fill: currentColor !important;
+            stroke: none !important;
+        }
+
+        .nav-icon .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-icon .icon {
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-newsletter .icon {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 6rem 5%;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .newsletter p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            min-width: 250px;
+        }
+
+        /* Enhanced Footer Styles */
+        .footer-main {
+            background: var(--text-dark);
+            color: white;
+            padding: 5rem 5% 2rem;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 4rem;
+            text-align: left;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2.5rem;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .footer-logo-text {
+            font-family: 'Pinyon Script';
+            font-size: 3.5rem;
+            color: white;
+            display: block;
+        }
+
+        .footer-logo .logo-tagline {
+            margin-left: 8px;
+            margin-top: 5px;
+        }
+
+        .footer-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .social-icon {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-copy {
+            background: var(--text-dark);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+        }
+
+        .footer-newsletter p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-input-group {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .footer-input-group input {
+            background: transparent;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            color: white;
+            flex: 1;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .footer-input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-input-group button {
+            background: var(--accent-rose);
+            border: none;
+            padding: 0 1.2rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .footer-input-group button:hover {
+            background: #b88f8f;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter h2 {
+                font-size: 2.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* Responsive Navigation */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        @media (max-width: 968px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .services-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding-top: 60px;
+                min-height: 500px;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+                margin: 0 5%;
+            }
+
+            .newsletter h2 {
+                font-size: 2.2rem;
+            }
+
+            .newsletter-form {
+                padding: 0 1rem;
+            }
+
+            .footer-main {
+                padding-top: 3rem;
+                gap: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Icon styles */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 6px #777;
+        }
+
+        .whatsapp-float .icon {
+            width: 35px;
+            height: 35px;
+            fill: white;
+            stroke: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo-container">
+            <span class="logo">Naphsie</span>
+            <span class="logo-tagline">hair and makeup</span>
+        </a>
+        <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="appointments.html">APPOINTMENTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <div class="nav-icons">
+            <span class="nav-icon" title="Search" onclick="toggleSearch()">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" fill="none" />
+                </svg>
+            </span>
+        </div>
+        <!-- Search Container -->
+        <div class="search-container" id="searchContainer">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search..."
+                onkeyup="if(event.key === 'Enter') performSearch()">
+            <button class="search-btn" onclick="performSearch()">Go</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-subtitle">LUXURY BEAUTY DESTINATION</p>
+            <h1>
+                Discover Your<br>
+                <span class="highlight">Perfect Glow</span>
+            </h1>
+            <p class="hero-description">
+                Experience the art of beauty with our curated collection of luxury cosmetics and professional makeup
+                services.
+            </p>
+            <div class="hero-buttons">
+
+                <a href="https://wa.me/233245836470" class="btn btn-secondary" target="_blank">
+                    BOOK APPOINTMENT
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                        <path d="M5 3v4" />
+                        <path d="M19 17v4" />
+                        <path d="M3 5h4" />
+                        <path d="M17 19h4" />
+                    </svg>
+                </div>
+                <h3>Premium Products</h3>
+                <p>Curated selection of luxury brands and exclusive formulations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                        <line x1="16" x2="16" y1="2" y2="6" />
+                        <line x1="8" x2="8" y1="2" y2="6" />
+                        <line x1="3" x2="21" y1="10" y2="10" />
+                    </svg>
+                </div>
+                <h3>Expert Services</h3>
+                <p>Professional makeup artists for every occasion.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                </div>
+                <h3>Personalized Care</h3>
+                <p>Tailored beauty consultations for your unique style.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Join Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the Naphsie Family</h2>
+            <p>Book via email for exclusive offers, beauty tips, and early access to new collections.</p>
+            <form class="newsletter-form" name="email-booking" data-netlify="true">
+                <input type="email" name="email" placeholder="Enter here" required>
+                <button type="submit" class="btn btn-primary">BOOK NOW</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="appointments">
+        <div class="services-image"></div>
+        <div class="services-content">
+            <p class="section-subtitle">PROFESSIONAL SERVICES</p>
+            <h2 class="section-title">Book Your Beauty Experience</h2>
+            <p>
+                From bridal glam to editorial looks, our expert makeup artists bring your vision to life. Experience
+                personalized beauty services tailored to your unique style.
+            </p>
+            <a href="https://wa.me/233245836470" class="btn btn-rose" target="_blank">
+                BOOK NOW →
+            </a>
+        </div>
+    </section>
+
+    <!-- Updated Footer -->
+    <footer id="contact">
+        <div class="footer-main">
+            <div class="footer-col">
+                <a href="#" class="footer-logo">
+                    <span class="footer-logo-text">Naphsie</span>
+                    <span class="logo-tagline">hair and makeup</span>
+                </a>
+                <p class="footer-desc">
+                    Discover the art of beauty with our curated collection of luxury cosmetics and professional makeup
+                    services.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/naphsie_mua/" class="social-icon" title="Instagram"
+                        target="_blank">
+                        <!-- Instagram Icon (Outline) -->
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" <svg
+                            class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+
+                    <li><a href="#appointments">Book Appointment</a></li>
+                    <li><a href="appointments.html">Appointments</a></li>
+                    <li><a href="index.html">Home</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li>Naphsiemua73@gmail.com</li>
+                    <li>0245836470</li>
+                    <li>Minerva street 16</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Naphsie makeup & hair. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+
+        console.log('Naphsie Beauty Website Loaded Successfully');
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+
+            // Toggle between hamburger and close icon
+            const menuToggle = document.querySelector('.menu-toggle svg');
+            if (navLinks.classList.contains('active')) {
+                menuToggle.innerHTML = `
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                `;
+            } else {
+                menuToggle.innerHTML = `
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                `;
+            }
+        }
+
+        function toggleSearch() {
+            const searchContainer = document.getElementById('searchContainer');
+            if (searchContainer.style.display === 'flex') {
+                searchContainer.style.display = 'none';
+            } else {
+                searchContainer.style.display = 'flex';
+                document.getElementById('searchInput').focus();
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) return;
+
+            // Keyword Mappings
+            const apptKeywords = ['bridal', 'special', 'occasion', 'lesson', 'natural', 'glam', 'book', 'appointment', 'services'];
+            const homeKeywords = ['home', 'index', 'gallery', 'portfolio', 'products', 'premium', 'glow'];
+            const contactKeywords = ['contact', 'email', 'phone', 'address', 'location', 'reach', 'find'];
+
+            if (apptKeywords.some(keyword => query.includes(keyword))) {
+                window.location.href = 'appointments.html';
+            } else if (contactKeywords.some(keyword => query.includes(keyword))) {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                    toggleSearch();
+                } else {
+                    window.location.href = 'index.html#contact';
+                }
+            } else if (homeKeywords.some(keyword => query.includes(keyword))) {
+                window.location.href = 'index.html';
+            } else {
+                // Basic text search on page if no keyword matches
+                const bodyText = document.body.innerText.toLowerCase();
+                if (bodyText.includes(query)) {
+                    // Try to scroll to the first element containing the text
+                    const elements = document.querySelectorAll('h1, h2, h3, p');
+                    let found = false;
+                    for (const el of elements) {
+                        if (el.innerText.toLowerCase().includes(query)) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            el.style.backgroundColor = 'rgba(168, 86, 107, 0.2)'; // Brief highlight
+                            setTimeout(() => { el.style.backgroundColor = ''; }, 2000);
+                            found = true;
+                            toggleSearch();
+                            break;
+                        }
+                    }
+                    if (!found) alert(`No specific section found for "${query}", but the term exists on the page.`);
+                } else {
+                    alert(`Sorry, no results found for "${query}". Try searching for "Bridal", "Services", or "Contact".`);
+                }
+            }
+        }
+    </script>
+    <a href="https://wa.me/233245836470" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+    </a>
+</body>
+
+</html>
