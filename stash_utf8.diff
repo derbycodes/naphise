@@ -1,0 +1,125 @@
+﻿diff --git a/makeup/index.html b/makeup/index.html
+index 63a87ae..cd2619a 100644
+--- a/makeup/index.html
++++ b/makeup/index.html
+@@ -12,7 +12,7 @@
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link
+-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=block"
++        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=block"
+         rel="stylesheet">
+ 
+     <style>
+@@ -66,11 +66,79 @@
+ 
+ 
+         .logo {
+-            font-family: 'Pinyon Script';
+-            font-size: 2.8rem;
+-            font-weight: 400;
+-            color: var(--text-dark);
++            display: flex;
++            flex-direction: column;
++            align-items: flex-start;
+             text-decoration: none;
++            color: var(--text-dark);
++            line-height: 0.9;
++        }
++
++        .logo-main {
++            font-family: 'Libre Caslon Text', 'Caslon', serif;
++            font-size: 2.2rem;
++            font-weight: 700;
++        }
++
++        .logo-sub-wrapper {
++            position: relative;
++            margin-top: 10px;
++        }
++
++        .logo-sub,
++        .logo-sub-ghost {
++            font-family: 'Pinyon Script', cursive;
++            font-size: 1.8rem;
++            color: var(--primary-color);
++            white-space: nowrap;
++            letter-spacing: 1px;
++        }
++
++        .logo-sub-ghost {
++            visibility: hidden;
++            opacity: 0;
++        }
++
++        .logo-sub {
++            position: absolute;
++            top: 0;
++            left: 0;
++            overflow: hidden;
++            border-right: .1em solid var(--primary-color);
++            width: 0;
++            animation:
++                typing 8s steps(40, end) infinite,
++                blink-caret .75s step-end infinite;
++        }
++
++        @keyframes typing {
++            0% {
++                width: 0
++            }
++
++            35% {
++                width: 100%
++            }
++
++            90% {
++                width: 100%
++            }
++
++            100% {
++                width: 0
++            }
++        }
++
++        @keyframes blink-caret {
++
++            from,
++            to {
++                border-color: transparent
++            }
++
++            50% {
++                border-color: var(--primary-color);
++            }
+         }
+ 
+         .nav-links {
+@@ -846,7 +914,13 @@
+ <body>
+     <!-- Navigation -->
+     <nav>
+-        <a href="#" class="logo">Naphsie</a>
++        <a href="#" class="logo">
++            <span class="logo-main">Naphsie</span>
++            <div class="logo-sub-wrapper">
++                <span class="logo-sub-ghost">Makeup and Hair</span>
++                <span class="logo-sub">Makeup and Hair</span>
++            </div>
++        </a>
+         <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">
+             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                 <line x1="3" y1="12" x2="21" y2="12"></line>
+@@ -979,7 +1053,11 @@
+     <footer id="contact">
+         <div class="footer-main">
+             <div class="footer-col">
+-                <a href="#" class="footer-logo">Naphsie</a>
++                <a href="#" class="footer-logo" style="display: flex; flex-direction: column; line-height: 1;">
++                    <span style="font-family: 'Libre Caslon Text', serif; font-size: 2.5rem;">Naphsie</span>
++                    <span style="font-family: 'Pinyon Script'; font-size: 1.8rem; color: var(--accent-rose);">Makeup and
++                        Hair</span>
++                </a>
+                 <p class="footer-desc">
+                     Discover the art of beauty with our curated collection of luxury cosmetics and professional makeup
+                     services.
